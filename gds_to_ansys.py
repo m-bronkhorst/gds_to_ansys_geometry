@@ -242,3 +242,6 @@ make_gates(q, gate_model)
 
 #%%
 make_substrate(q)
+
+#%%
+close_q3d(q)
