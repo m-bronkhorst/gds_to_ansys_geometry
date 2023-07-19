@@ -43,7 +43,7 @@ def define_system():
     # Files
     current_dir = os.path.dirname(os.path.realpath(__file__))
     system.current_dir = os.path.dirname(os.path.realpath(__file__))
-    system.file_path = current_dir+"GDS_FILE.gds" # of gds file
+    system.file_path = current_dir+"\\..\\10DotLayout\\343_vj_6p0_new_clip.gds" # of gds file
 
     # Gates
     system.layer_order = [(3, 0), (5, 0), (51, 0), (31, 0), (21, 0)] # Layers in the gds file, open the file in Klayout to see the layers
@@ -54,7 +54,6 @@ def define_system():
     system.zpos = {3:0.0, 5:0.0, 51:0.0, 31:0.0, 21:0.0} # Offset in z-direction of all layers
     
     # Substrate
-    system.list_dot_substrate = ['dot','SiGe1','SiGe2','Ge', "SiOx"]
     system.list_substrates = ['SiGe1', 'Ge', 'SiGe2']
     system.coords_substrate = [[-0.40000,-1.00000],[-1.20000,-0.40000],[-1.2000,0.40000],[-1.20000,0.40000],[-0.40000,1.00000],[0.40000,1.0000],[1.20000,0.40000],[1.20000,-0.40000],[0.40000,-1.00000],[-0.40000,-1.00000]]
     system.z_coords = {'SiGe1': 0.0, 'Ge':-57*1e-3, 'SiGe2': -67*1e-3} 
