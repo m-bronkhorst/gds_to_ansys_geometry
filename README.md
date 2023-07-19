@@ -44,7 +44,7 @@ As an example, the file [Example.gds](Example/Example.gds) is used. In this [fig
 Makes the geometries of the gates in Ansys and assigns materials to them.
 
 ### `make_substrate()`
-Makes the substrate. In the example the substrate is made out of layers silicon-germanium, germanium and another layer of silicon-germanium. 
+Makes the substrate. In the example the substrate is made out of layers silicon-germanium, germanium and another layer of silicon-germanium. After adding the substrate from the example the model looks like [this](Example/3D_complete.png). Note that the color of the gates has been changed to grey to avoid confusing the gates and the substrate layers.
 
 ### From Ansys to COMSOL
 The 3D model can be extracted from Ansys and imported to COMSOL. Ansys has multiple file types it can be extracted to, note that not all file types support 3D coordinates. COMSOL is capable of importing different file types (see [Comsol site](https://www.comsol.com/fileformats)). I managed to do this succesfully but do not remember the filetype used, I think it was .sab. However some tests should clear that up as it takes very little time. The materials of the model are not inherited to the COMSOL model.
