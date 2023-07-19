@@ -38,7 +38,7 @@ Order of the function:
 - Raise intersections above upper gate
 - Store everything in `objects_dict`
 
-As an example, the file [Example.gds](Example/Example.gds) is used. In this [figure](Example/Layout_klayout.png) a picture of the gds file is given. Green, red, dark blue, light blue and grey relate to layers (31,0), (21,0), (5,0), (51,0), (3,0) respectively. After running the code, the geometry looks like [this](3D_layout.png) in the Ansys software. Note that the colors have been adjusted in Ansys in light of clarity. In this picture it can be seen how the gates are stacked. Test whether the file paths and variables are correct when running the code for `Example.gds` does not yield similar results.
+As an example, the file [Example.gds](Example/Example.gds) is used. In this [figure](Example/Layout_klayout.png) a picture of the gds file is given. Green, red, dark blue, light blue and grey relate to layers (31,0), (21,0), (5,0), (51,0), (3,0) respectively. After running the code, the geometry looks like [this](Example/3D_layout.png) in the Ansys software. Note that the colors have been adjusted in Ansys in light of clarity. In this picture it can be seen how the gates are stacked. Test whether the file paths and variables are correct when running the code for `Example.gds` does not yield similar results.
 
 ### `make_gates()`
 Makes the geometries of the gates in Ansys and assigns materials to them.
