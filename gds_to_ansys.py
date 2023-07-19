@@ -231,13 +231,6 @@ def make_substrate(q):
         q.modeler.cover_lines(substrate_layer)
         q.modeler.sweep_along_vector(substrate_layer,[0,0,heights[substrate_layer]])
 
-    heterstructure_colors = {"SiGe1":(120,60,230),"Ge":(230,60,120),"SiGe2":(250,80,80)}
-
-    
-    for key in heterstructure_colors.keys():
-        # q.modeler[key].color = heterstructure_colors[key]
-        q.modeler[key].transparency = 0.6
-
 #%%
 q = open_q3d()
 # ### MAKE SURE TO MANUALLY MAKE um THE DEFAULT LENGTH UNIT!!!!
