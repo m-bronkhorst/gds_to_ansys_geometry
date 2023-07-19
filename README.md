@@ -38,7 +38,7 @@ Order of the function:
 - Raise intersections above upper gate
 - Store everything in `objects_dict`
 
-As an example, the file [343_vj_6p0_new_clip.gds](LINK) is used.
+As an example, the file [Example.gds](Example.gds) is used.
 
 ### `make_gates()`
 
