@@ -2,11 +2,11 @@
 """
 Created on Tue Aug 18
 
-@author: mbronkhorst
+@author: m-bronkhorst
 """
 #%%
 #### NOTE: THE DATA IS STORED IN A LIST-BASED WAY. NOT REALLY A BOTTLENECK OF SPEED, BUT IT IS UGLY. FOR A VERSION 2, REMAKE IT SUCH THAT IT IS SAVED AS A NUMPY ARRAY (WITHIN DICTIONARIES)
-
+#### NOTE: define_system() contains all variables. When changing .gds files and directories, only this function needs to be changed
 import os
 import gdspy
 import shapely as sh
@@ -17,14 +17,13 @@ import pyaedt
 import numpy as np
 
 def open_q3d():
-    ### Opens up Ansys with a Graphical Interface
-    ### If you don't want it graphical, set the string to True
+    # Opens up Ansys with a Graphical Interface
+    # If you don't want it graphical, set the string to True
     ### Make sure to be connected with the licence server (e.g. with eduVPN)
-    ### Choses random project name
     
     graphical_bool_str = 'False'
     non_graphical = os.getenv("PYAEDT_NON_GRAPHICAL", graphical_bool_str).lower() in ("true", "1", "t")
-    
+    # Choses random project name
     q = pyaedt.Q3d(projectname=str(pyaedt.generate_unique_project_name()),
                    specified_version="2022.2",
                    non_graphical=non_graphical,
@@ -36,6 +35,7 @@ def close_q3d(q):
     q.release_desktop(close_projects=True, close_desktop=True)
 
 def define_system():
+    ## NOTE: THE CURRENT VALUES IN define_system() HAVE TO BE ADJUSTED FOR EVERY .gds FILE
     # Making an object to define global system characteristics
     class NewClass(object): pass
     system = NewClass()
@@ -43,15 +43,14 @@ def define_system():
     # Files
     current_dir = os.path.dirname(os.path.realpath(__file__))
     system.current_dir = os.path.dirname(os.path.realpath(__file__))
-    system.file_path = current_dir+"\\..\\10DotLayout\\343_vj_6p0_new_clip.gds" # of gds file
-    system.goal_dir = current_dir+"\\FEM_results_2" # of results
+    system.file_path = current_dir+"GDS_FILE.gds" # of gds file
 
     # Gates
-    system.layer_order = [(3, 0), (5, 0), (51, 0), (31, 0), (21, 0)] # Layers in the gds file
+    system.layer_order = [(3, 0), (5, 0), (51, 0), (31, 0), (21, 0)] # Layers in the gds file, open the file in Klayout to see the layers
     system.layer_heights = {3:20e-3, 5:20e-3, 51:20e-3, 31:30e-3, 21:40e-3} # in um
     system.layer_materials = {3:"copper", 5:"copper", 51:"copper", 31:"copper", 21:"copper"} # Materials of all layers
     system.ver_tolerance = 5e-3 # Vertical space between gates stacked vertically
-    system.hor_tolerance = 3e-3 # How much a raised part of a gated will be blown up to try to keep gate continuous
+    system.hor_tolerance = 3e-3 # How much a raised intersection of gates will be blown up to try to keep gate continuous
     system.zpos = {3:0.0, 5:0.0, 51:0.0, 31:0.0, 21:0.0} # Offset in z-direction of all layers
     
     # Substrate
