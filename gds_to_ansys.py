@@ -43,7 +43,7 @@ def define_system():
     # Files
     current_dir = os.path.dirname(os.path.realpath(__file__))
     system.current_dir = os.path.dirname(os.path.realpath(__file__))
-    system.file_path = current_dir+"\\..\\10DotLayout\\343_vj_6p0_new_clip.gds" # of gds file
+    system.file_path = current_dir+"\\Example.gds" # of gds file
 
     # Gates
     system.layer_order = [(3, 0), (5, 0), (51, 0), (31, 0), (21, 0)] # Layers in the gds file, open the file in Klayout to see the layers
